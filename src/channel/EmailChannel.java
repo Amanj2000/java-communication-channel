@@ -3,8 +3,8 @@ package channel;
 public class EmailChannel implements Channel {
 
     @Override
-    public void sendMessage() {
-        System.out.println("Message sent through e-mail.");
+    public void sendMessage(String message) {
+        System.out.printf("Message: %s sent through e-mail.\n", message);
     }
 
     @Override

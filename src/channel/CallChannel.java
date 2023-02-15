@@ -3,8 +3,8 @@ package channel;
 public class CallChannel implements Channel {
 
     @Override
-    public void sendMessage() {
-        System.out.println("Message sent through call.");
+    public void sendMessage(String message) {
+        System.out.printf("Message: %s sent through call.\n", message);
     }
 
     @Override

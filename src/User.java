@@ -1,10 +1,10 @@
-import java.util.ArrayList;
+import java.util.List;
 
 public class User {
     private final String name;
     private final Preferences preferences;
 
-    public User(String name, ArrayList<String> preferences) {
+    public User(String name, List<String> preferences) {
         this.name = name;
         this.preferences = new Preferences(preferences);
     }
@@ -19,6 +19,10 @@ public class User {
 
     public String getName() {
         return name;
+    }
+
+    public Preferences getPreferences() {
+        return preferences;
     }
 
     @Override

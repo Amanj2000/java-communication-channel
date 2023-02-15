@@ -10,7 +10,7 @@ public class ChannelFactory {
             case "call":
                 return new CallChannel();
             default:
-                System.out.println("error: invalid channel name.");
+                System.out.println("error: invalid or empty channel name " + channel);
                 return null;
         }
     }

@@ -3,8 +3,8 @@ package channel;
 public class SMSChannel implements Channel {
 
     @Override
-    public void sendMessage() {
-        System.out.println("Message sent through SMS.");
+    public void sendMessage(String message) {
+        System.out.printf("Message: %s sent through sms.\n", message);
     }
 
     @Override

@@ -1,6 +1,6 @@
 package channel;
 
 public interface Channel {
-    void sendMessage();
+    void sendMessage(String message);
     String getMedium();
 }
