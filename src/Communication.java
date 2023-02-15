@@ -1,3 +1,4 @@
+import Preferences.Preferences;
 import channel.Channel;
 
 public class Communication {

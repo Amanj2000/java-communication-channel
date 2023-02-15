@@ -1,3 +1,5 @@
+package Preferences;
+
 import channel.Channel;
 import channel.ChannelFactory;
 
@@ -7,21 +9,11 @@ import java.util.List;
 
 public class Preferences {
     private final ChannelFactory channelFactory;
-    private HashMap<String, Channel> channels;
+    private final HashMap<String, Channel> channels;
 
-    public Preferences(List<String> channels) {
+    Preferences() {
         this.channelFactory = new ChannelFactory();
-        init(channels);
-    }
-
-    private void init(List<String> channels) {
-        this.channels = new HashMap<>();
-        for(String ch : channels) {
-            Channel channel = channelFactory.createChannel(ch);
-            if(channel != null) {
-                this.channels.put(channel.getMedium(), channel);
-            }
-        }
+        channels = new HashMap<>();
     }
 
     public void addChannel(String ch) {
