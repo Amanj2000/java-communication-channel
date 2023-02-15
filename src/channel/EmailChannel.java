@@ -1,6 +1,6 @@
 package channel;
 
-public class EmailChannel implements Channel {
+class EmailChannel implements Channel {
 
     @Override
     public void sendMessage(String message) {

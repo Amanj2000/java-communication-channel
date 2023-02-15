@@ -21,11 +21,11 @@ public class User {
         return preferencesBuilder.getPreferences();
     }
 
-    public void addPreference(String channel) {
+    public void optIn(String channel) {
         preferences.addChannel(channel);
     }
 
-    public void removePreference(String channel) {
+    public void optOut(String channel) {
         preferences.removeChannel(channel);
     }
 

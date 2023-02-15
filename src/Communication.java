@@ -2,7 +2,7 @@ import Preferences.Preferences;
 import channel.Channel;
 
 public class Communication {
-    public String communicate(User sender, User receiver, String message) {
+    public String sendMessage(User sender, User receiver, String message) {
         Preferences preferences = receiver.getPreferences();
         if(preferences.getChannels().isEmpty()) {
             return String.format("Receiver %s is not opt-in for any service\n", receiver.getName());

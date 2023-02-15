@@ -1,6 +1,6 @@
 package channel;
 
-public class SMSChannel implements Channel {
+class SMSChannel implements Channel {
 
     @Override
     public void sendMessage(String message) {

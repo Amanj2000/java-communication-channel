@@ -18,8 +18,8 @@ public class TestClass {
         printUsers(aman, rahul);
 
         Communication communication = new Communication();
-        System.out.println(communication.communicate(aman, rahul, "hi"));
-        System.out.println(communication.communicate(rahul, aman, "hello"));
+        System.out.println(communication.sendMessage(aman, rahul, "hi"));
+        System.out.println(communication.sendMessage(rahul, aman, "hello"));
     }
 
     @Test
@@ -29,8 +29,8 @@ public class TestClass {
         printUsers(aman, rahul);
 
         Communication communication = new Communication();
-        System.out.println(communication.communicate(aman, rahul, "hi"));
-        System.out.println(communication.communicate(rahul, aman, "hello"));
+        System.out.println(communication.sendMessage(aman, rahul, "hi"));
+        System.out.println(communication.sendMessage(rahul, aman, "hello"));
     }
 
     @Test
@@ -40,8 +40,8 @@ public class TestClass {
         printUsers(aman, rahul);
 
         Communication communication = new Communication();
-        System.out.println(communication.communicate(aman, rahul, "hi"));
-        System.out.println(communication.communicate(rahul, aman, "hello"));
+        System.out.println(communication.sendMessage(aman, rahul, "hi"));
+        System.out.println(communication.sendMessage(rahul, aman, "hello"));
     }
 
     @Test
@@ -51,19 +51,19 @@ public class TestClass {
         printUsers(aman, rahul);
 
         Communication communication = new Communication();
-        System.out.println(communication.communicate(rahul, aman, "hello"));
+        System.out.println(communication.sendMessage(rahul, aman, "hello"));
 
         System.out.println("Adding preference sms to user aman");
-        aman.addPreference("sms");
+        aman.optIn("sms");
         printUsers(aman, rahul);
 
-        System.out.println(communication.communicate(rahul, aman, "hello"));
+        System.out.println(communication.sendMessage(rahul, aman, "hello"));
 
         System.out.println("Adding preference sms again to user aman");
-        aman.addPreference("sms");
+        aman.optIn("sms");
         printUsers(aman, rahul);
 
-        System.out.println(communication.communicate(rahul, aman, "hello"));
+        System.out.println(communication.sendMessage(rahul, aman, "hello"));
     }
 
     @Test
@@ -73,18 +73,18 @@ public class TestClass {
         printUsers(aman, rahul);
 
         Communication communication = new Communication();
-        System.out.println(communication.communicate(rahul, aman, "hello"));
+        System.out.println(communication.sendMessage(rahul, aman, "hello"));
 
         System.out.println("Removing preference call from user aman");
-        aman.removePreference("call");
+        aman.optOut("call");
         printUsers(aman, rahul);
 
-        System.out.println(communication.communicate(rahul, aman, "hello"));
+        System.out.println(communication.sendMessage(rahul, aman, "hello"));
 
         System.out.println("Removing preference call again from user aman");
-        aman.removePreference("call");
+        aman.optOut("call");
         printUsers(aman, rahul);
 
-        System.out.println(communication.communicate(rahul, aman, "hello"));
+        System.out.println(communication.sendMessage(rahul, aman, "hello"));
     }
 }
