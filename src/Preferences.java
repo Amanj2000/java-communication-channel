@@ -43,6 +43,8 @@ public class Preferences {
 
     @Override
     public String toString() {
+        if(channels.isEmpty()) return "none";
+
         StringBuilder sb = new StringBuilder();
         for(String ch: channels.keySet()) {
             sb.append(ch).append(", ");
