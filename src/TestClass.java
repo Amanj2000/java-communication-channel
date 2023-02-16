@@ -5,13 +5,13 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 public class TestClass {
-    private static Communication communication;
+    private static CommunicationApp communication;
     private static User aman;
     private static User rahul;
 
     @BeforeEach
     void init() {
-        communication = new Communication();
+        communication = new CommunicationApp();
 
         aman = new User(1, "aman");
         rahul = new User(2, "rahul");

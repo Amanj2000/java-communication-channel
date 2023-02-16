@@ -1,4 +1,4 @@
-# Communication Application
+# CommunicationApp Application
 
 Users can communicate with other user using various communication channels (e-mail, sms, call etc.).
 

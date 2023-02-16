@@ -7,8 +7,8 @@ import channel.ChannelType;
 public abstract class CommunicationService {
     protected Channel channel;
 
-    protected CommunicationService(ChannelType ch) {
-        this.channel = ChannelFactory.createChannel(ch);
+    protected CommunicationService(ChannelType channelType) {
+        this.channel = ChannelFactory.createChannel(channelType);
     }
 
     public void sendMessage(String message) {

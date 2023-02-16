@@ -9,6 +9,6 @@ class TextCommunicationService extends CommunicationService {
 
     @Override
     String display() {
-        return "using text communication service";
+        return String.format("CommunicationApp Service: Text \t Channel Type: %s", super.channel.getMedium());
     }
 }

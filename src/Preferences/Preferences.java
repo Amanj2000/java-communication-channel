@@ -13,12 +13,12 @@ public class Preferences {
         channels = new HashSet<>();
     }
 
-    public void addChannel(ChannelType ch) {
-        channels.add(ch);
+    public void addChannel(ChannelType channelType) {
+        channels.add(channelType);
     }
 
-    public void removeChannel(ChannelType ch) {
-        channels.remove(ch);
+    public void removeChannel(ChannelType channelType) {
+        channels.remove(channelType);
     }
 
     public List<ChannelType> getChannels() {

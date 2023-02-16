@@ -1,25 +1,15 @@
 import CommunicationService.CommunicationService;
 import CommunicationService.CommunicationServiceFactory;
-import Preferences.Preferences;
-import channel.Channel;
 import channel.ChannelType;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Communication {
+public class CommunicationApp {
     private final PreferenceDB preferenceDB;
 
-    public Communication() {
+    public CommunicationApp() {
         preferenceDB = new PreferenceDB();
-    }
-
-    public void optIn(User user, ChannelType channelType) {
-        preferenceDB.optIn(user, channelType);
-    }
-
-    public void optOut(User user, ChannelType channelType) {
-        preferenceDB.optOut(user, channelType);
     }
 
     public void registerUser(User user) {
@@ -28,6 +18,14 @@ public class Communication {
 
     public void registerUser(User user, List<ChannelType> channels) {
         preferenceDB.addEntry(user, channels);
+    }
+
+    public void optIn(User user, ChannelType channelType) {
+        preferenceDB.optIn(user, channelType);
+    }
+
+    public void optOut(User user, ChannelType channelType) {
+        preferenceDB.optOut(user, channelType);
     }
 
     public String sendMessage(User sender, User receiver, String message) {
@@ -47,6 +45,6 @@ public class Communication {
     }
 
     public String info(User user) {
-        return String.format("User: \t name: %s \t preferences: %s", user.getName(), preferenceDB.getPreferences(user));
+        return String.format("User: \t %s", preferenceDB.info(user));
     }
 }

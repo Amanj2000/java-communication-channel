@@ -9,6 +9,6 @@ class EmailCommunicationService extends CommunicationService {
 
     @Override
     String display() {
-        return "using e-mail communication service";
+        return String.format("CommunicationApp Service: Email \t Channel Type: %s", super.channel.getMedium());
     }
 }

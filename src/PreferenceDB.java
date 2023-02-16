@@ -49,8 +49,8 @@ public class PreferenceDB {
         }
     }
 
-    public String toString(User user) {
-        return String.format("Name: %s \t Preferences: %s", user.getName(), preferencesData.getOrDefault(user.getId()
+    public String info(User user) {
+        return String.format("name: %s \t preferences: %s", user.getName(), preferencesData.getOrDefault(user.getId()
                 , new Preferences()));
     }
 }
