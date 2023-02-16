@@ -12,7 +12,6 @@ public class CommunicationServiceFactory {
             case CALL:
                 return new CallCommunicationService();
             default:
-                System.out.println("error: invalid or empty channel name " + channel);
                 return null;
         }
     }

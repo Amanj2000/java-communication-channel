@@ -1,0 +1,56 @@
+import Preferences.Preferences;
+import Preferences.PreferencesBuilder;
+import Preferences.PreferencesBuilderImpl;
+import channel.ChannelType;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+
+public class PreferenceDB {
+    // stores user id and its corresponding preferences
+    private final HashMap<Integer, Preferences> preferencesData;
+
+    public PreferenceDB() {
+        preferencesData = new HashMap<>();
+    }
+
+    public void addEntry(User user, List<ChannelType> channels) {
+        PreferencesBuilder preferencesBuilder = new PreferencesBuilderImpl();
+        for(ChannelType ch: channels) {
+            preferencesBuilder.addPreference(ch);
+        }
+        preferencesData.put(user.getId(), preferencesBuilder.getPreferences());
+    }
+
+    public void optIn(User user, ChannelType channel) {
+        int userId = user.getId();
+        if(!preferencesData.containsKey(userId)) {
+            addEntry(user, new ArrayList<>(Collections.singleton(channel)));
+        } else {
+            preferencesData.get(userId).addChannel(channel);
+        }
+    }
+
+    public void optOut(User user, ChannelType channel) {
+        int userId = user.getId();
+        if(preferencesData.containsKey(userId)) {
+            preferencesData.get(userId).removeChannel(channel);
+        }
+    }
+
+    public List<ChannelType> getPreferences(User user) {
+        int userId = user.getId();
+        if(preferencesData.containsKey(userId)) {
+            return preferencesData.get(userId).getChannels();
+        } else {
+            return new ArrayList<>();
+        }
+    }
+
+    public String toString(User user) {
+        return String.format("Name: %s \t Preferences: %s", user.getName(), preferencesData.getOrDefault(user.getId()
+                , new Preferences()));
+    }
+}

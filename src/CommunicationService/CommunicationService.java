@@ -11,7 +11,7 @@ public abstract class CommunicationService {
         this.channel = ChannelFactory.createChannel(ch);
     }
 
-    protected void sendMessage(String message) {
+    public void sendMessage(String message) {
         this.channel.sendMessage(message);
     }
 
