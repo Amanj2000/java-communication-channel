@@ -1,5 +1,7 @@
 package Preferences;
 
+import channel.ChannelType;
+
 public class PreferencesBuilderImpl implements PreferencesBuilder{
     private final Preferences preferences;
 
@@ -8,7 +10,7 @@ public class PreferencesBuilderImpl implements PreferencesBuilder{
     }
 
     @Override
-    public void addPreference(String channel) {
+    public void addPreference(ChannelType channel) {
         this.preferences.addChannel(channel);
     }
 

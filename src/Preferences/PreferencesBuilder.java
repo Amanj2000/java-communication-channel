@@ -1,6 +1,8 @@
 package Preferences;
 
+import channel.ChannelType;
+
 public interface PreferencesBuilder {
-    void addPreference(String channel);
+    void addPreference(ChannelType channel);
     Preferences getPreferences();
 }

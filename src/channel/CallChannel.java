@@ -8,7 +8,7 @@ class CallChannel implements Channel {
     }
 
     @Override
-    public String getMedium() {
-        return "call";
+    public ChannelType getMedium() {
+        return ChannelType.CALL;
     }
 }

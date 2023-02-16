@@ -8,7 +8,7 @@ class SMSChannel implements Channel {
     }
 
     @Override
-    public String getMedium() {
-        return "sms";
+    public ChannelType getMedium() {
+        return ChannelType.SMS;
     }
 }

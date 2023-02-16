@@ -1,6 +1,7 @@
 import Preferences.Preferences;
 import Preferences.PreferencesBuilder;
 import Preferences.PreferencesBuilderImpl;
+import channel.ChannelType;
 
 import java.util.List;
 
@@ -8,24 +9,24 @@ public class User {
     private final String name;
     private final Preferences preferences;
 
-    public User(String name, List<String> preferences) {
+    public User(String name, List<ChannelType> preferences) {
         this.name = name;
         this.preferences = init(preferences);
     }
 
-    private Preferences init(List<String> preferences) {
+    private Preferences init(List<ChannelType> preferences) {
         PreferencesBuilder preferencesBuilder = new PreferencesBuilderImpl();
-        for(String p: preferences) {
+        for(ChannelType p: preferences) {
             preferencesBuilder.addPreference(p);
         }
         return preferencesBuilder.getPreferences();
     }
 
-    public void optIn(String channel) {
+    public void optIn(ChannelType channel) {
         preferences.addChannel(channel);
     }
 
-    public void optOut(String channel) {
+    public void optOut(ChannelType channel) {
         preferences.removeChannel(channel);
     }
 
