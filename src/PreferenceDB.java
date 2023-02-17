@@ -1,5 +1,5 @@
 import Preferences.Preferences;
-import Preferences.PreferencesBuilder;
+import Preferences.IPreferencesBuilder;
 import Preferences.PreferencesBuilderImpl;
 import channel.ChannelType;
 
@@ -10,14 +10,10 @@ import java.util.List;
 
 public class PreferenceDB {
     // stores user id and its corresponding preferences
-    private final HashMap<Integer, Preferences> preferencesData;
-
-    public PreferenceDB() {
-        preferencesData = new HashMap<>();
-    }
+    private static final HashMap<Integer, Preferences> preferencesData = new HashMap<>();
 
     public void addEntry(User user, List<ChannelType> channels) {
-        PreferencesBuilder preferencesBuilder = new PreferencesBuilderImpl();
+        IPreferencesBuilder preferencesBuilder = new PreferencesBuilderImpl();
         for(ChannelType ch: channels) {
             preferencesBuilder.addPreference(ch);
         }

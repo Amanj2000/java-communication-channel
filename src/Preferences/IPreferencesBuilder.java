@@ -2,7 +2,7 @@ package Preferences;
 
 import channel.ChannelType;
 
-public interface PreferencesBuilder {
+public interface IPreferencesBuilder {
     void addPreference(ChannelType channel);
     Preferences getPreferences();
 }
