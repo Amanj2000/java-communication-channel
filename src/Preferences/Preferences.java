@@ -1,36 +1,28 @@
 package Preferences;
 
-import channel.Channel;
-import channel.ChannelFactory;
+import channel.ChannelType;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 public class Preferences {
-    private final ChannelFactory channelFactory;
-    private final HashMap<String, Channel> channels;
+    private final HashSet<ChannelType> channels;
 
-    Preferences() {
-        this.channelFactory = new ChannelFactory();
-        channels = new HashMap<>();
+    public Preferences() {
+        channels = new HashSet<>();
     }
 
-    public void addChannel(String ch) {
-        if(!channels.containsKey(ch)) {
-            Channel channel = channelFactory.createChannel(ch);
-            if(channel != null) {
-                this.channels.put(channel.getMedium(), channel);
-            }
-        }
+    public void addChannel(ChannelType channelType) {
+        channels.add(channelType);
     }
 
-    public void removeChannel(String ch) {
-        channels.remove(ch);
+    public void removeChannel(ChannelType channelType) {
+        channels.remove(channelType);
     }
 
-    public List<Channel> getChannels() {
-        return new ArrayList<>(channels.values());
+    public List<ChannelType> getChannels() {
+        return new ArrayList<>(channels);
     }
 
     @Override
@@ -38,7 +30,7 @@ public class Preferences {
         if(channels.isEmpty()) return "none";
 
         StringBuilder sb = new StringBuilder();
-        for(String ch: channels.keySet()) {
+        for(ChannelType ch: channels) {
             sb.append(ch).append(", ");
         }
         return sb.substring(0, sb.length()-2);

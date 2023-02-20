@@ -8,7 +8,7 @@ class EmailChannel implements Channel {
     }
 
     @Override
-    public String getMedium() {
-        return "e-mail";
+    public ChannelType getMedium() {
+        return ChannelType.EMAIL;
     }
 }

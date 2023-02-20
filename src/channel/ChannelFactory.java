@@ -1,16 +1,15 @@
 package channel;
 
 public class ChannelFactory {
-    public Channel createChannel(String channel) {
-        switch(channel) {
-            case "sms":
-                return new SMSChannel();
-            case "e-mail":
+    public static Channel createChannel(ChannelType channelType) {
+        switch(channelType) {
+            case EMAIL:
                 return new EmailChannel();
-            case "call":
+            case SMS:
+                return new SMSChannel();
+            case CALL:
                 return new CallChannel();
             default:
-                System.out.println("error: invalid or empty channel name " + channel);
                 return null;
         }
     }

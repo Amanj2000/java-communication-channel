@@ -1,44 +1,21 @@
-import Preferences.Preferences;
-import Preferences.PreferencesBuilder;
-import Preferences.PreferencesBuilderImpl;
-
-import java.util.List;
-
 public class User {
-    private final String name;
-    private final Preferences preferences;
+    private final int id;
+    private String name;
 
-    public User(String name, List<String> preferences) {
+    public User(int id, String name) {
+        this.id = id;
         this.name = name;
-        this.preferences = init(preferences);
     }
 
-    private Preferences init(List<String> preferences) {
-        PreferencesBuilder preferencesBuilder = new PreferencesBuilderImpl();
-        for(String p: preferences) {
-            preferencesBuilder.addPreference(p);
-        }
-        return preferencesBuilder.getPreferences();
-    }
-
-    public void optIn(String channel) {
-        preferences.addChannel(channel);
-    }
-
-    public void optOut(String channel) {
-        preferences.removeChannel(channel);
+    public int getId() {
+        return id;
     }
 
     public String getName() {
         return name;
     }
 
-    public Preferences getPreferences() {
-        return preferences;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Name: %s \t Preferences: %s", name, preferences);
+    public void setName(String name) {
+        this.name = name;
     }
 }
