@@ -1,6 +1,4 @@
-import Preferences.Preferences;
-import Preferences.IPreferencesBuilder;
-import Preferences.PreferencesBuilderImpl;
+import Preferences.*;
 import channel.ChannelType;
 
 import java.util.ArrayList;
@@ -22,10 +20,10 @@ public class PreferenceDB {
 
     public void optIn(User user, ChannelType channel) {
         int userId = user.getId();
-        if(!preferencesData.containsKey(userId)) {
-            addEntry(user, new ArrayList<>(Collections.singleton(channel)));
-        } else {
+        if(preferencesData.containsKey(userId)) {
             preferencesData.get(userId).addChannel(channel);
+        } else {
+            addEntry(user, new ArrayList<>(Collections.singleton(channel)));
         }
     }
 
@@ -40,9 +38,8 @@ public class PreferenceDB {
         int userId = user.getId();
         if(preferencesData.containsKey(userId)) {
             return preferencesData.get(userId).getChannels();
-        } else {
-            return new ArrayList<>();
         }
+        return Collections.emptyList();
     }
 
     public String info(User user) {

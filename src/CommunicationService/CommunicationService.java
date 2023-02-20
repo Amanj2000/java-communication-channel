@@ -1,19 +1,19 @@
 package CommunicationService;
 
 import channel.Channel;
-import channel.ChannelFactory;
-import channel.ChannelType;
 
-public abstract class CommunicationService {
-    protected Channel channel;
+public class CommunicationService extends ICommunicationService {
+	public CommunicationService(Channel channel) {
+		super(channel);
+	}
 
-    protected CommunicationService(ChannelType channelType) {
-        this.channel = ChannelFactory.createChannel(channelType);
-    }
+	@Override
+	public void sendMessage(String message) {
+		super.channel.sendMessage(message);
+	}
 
-    public void sendMessage(String message) {
-        this.channel.sendMessage(message);
-    }
-
-    abstract String display();
+	@Override
+	public String display() {
+		return String.format("Channel type: %s", super.channel.getMedium());
+	}
 }

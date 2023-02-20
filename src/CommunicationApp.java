@@ -1,5 +1,5 @@
-import CommunicationService.CommunicationService;
-import CommunicationService.CommunicationServiceFactory;
+import CommunicationService.*;
+import channel.ChannelFactory;
 import channel.ChannelType;
 
 import java.util.ArrayList;
@@ -35,10 +35,8 @@ public class CommunicationApp {
         }
 
         for(ChannelType ch: preferences) {
-            CommunicationService communicationService = CommunicationServiceFactory.createCommunicationService(ch);
-            if(communicationService != null) {
-                communicationService.sendMessage(message);
-            }
+            ICommunicationService communicationService = new CommunicationService(ChannelFactory.createChannel(ch));
+            communicationService.sendMessage(message);
         }
         return String.format("User %s sent message %s to receiver %s by {%s} channels\n", sender.getName(), message,
                 receiver.getName(), preferences);
